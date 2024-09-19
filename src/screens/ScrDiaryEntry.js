@@ -2,6 +2,7 @@ import {StyleSheet, View, Text} from "react-native";
 import {useLayoutEffect, useState} from "react";
 import {Strings} from "../utils/constants";
 import DualChoiceQuestion from "../components/DualChoiceQuestion";
+import VerticalMultipleChoiceQuestion from "../components/VerticalMultipleChoiceQuestion";
 
 function ScrDiaryEntry({navigation}) {
     useLayoutEffect(() => {
@@ -17,6 +18,8 @@ function ScrDiaryEntry({navigation}) {
                 answer1Text={"Yes"}
                 answer2Text={"No"}
             />
+            <VerticalMultipleChoiceQuestion questionText={"Did it wake you up from sleeping?"}
+                                            answers={["1", "2", "3"]}/>
         </View>
     )
 }
