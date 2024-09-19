@@ -1,20 +1,35 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import {StatusBar} from 'expo-status-bar';
+import {StyleSheet, View} from 'react-native';
+import ScrPatientDiaryHome from "./src/screens/ScrPatientDiaryHome";
+import ScrDiaryEntry from "./src/screens/ScrDiaryEntry";
+import {createStackNavigator} from "@react-navigation/stack";
+import {NavigationContainer} from "@react-navigation/native";
+import {Screens, Colors} from "./src/utils/constants";
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+
+    const Stack = createStackNavigator();
+
+    return (
+        <View style={styles.rootView}>
+            <StatusBar style="light" />
+            <NavigationContainer>
+                <Stack.Navigator screenOptions={{
+                    headerStyle: {backgroundColor: Colors.secondaryDark},
+                    headerTintColor: "white",
+                    contentStyle: {backgroundColor: "white"},
+                }}>
+                    <Stack.Screen name={Screens.ScrPatientDiaryHome} component={ScrPatientDiaryHome}/>
+                    <Stack.Screen name={Screens.ScrDiaryEntry} component={ScrDiaryEntry}/>
+                </Stack.Navigator>
+            </NavigationContainer>
+        </View>
+    );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    rootView: {
+        flex: 1,
+        backgroundColor: '#fff'
+    },
 });
