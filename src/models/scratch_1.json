@@ -1,0 +1,170 @@
+{
+  "bladder": [
+    {
+      "question_identifier": "log_date_time",
+      "answers": [
+        {
+          "answer": "Just Now",
+          "order": 1,
+          "answer_identifier": "log_date_time_just_now"
+        },
+        {
+          "answer": "At another time",
+          "order": 2,
+          "answer_identifier": "log_date_time_at_another_time"
+        }
+      ],
+      "order": 1,
+      "question": "When did this happen?",
+      "answer_type": "single_select"
+    },
+    {
+      "question_identifier": "what_happened",
+      "answers": [
+        {
+          "value": 1,
+          "answer": "I urinated in the toilet",
+          "order": 1,
+          "answer_identifier": "what_happened_urinated_in_toilet"
+        },
+        {
+          "value": 2,
+          "answer": "I experienced a leak",
+          "order": 2,
+          "answer_identifier": "what_happened_leak_experienced"
+        },
+        {
+          "value": 3,
+          "answer": "Both",
+          "order": 3,
+          "answer_identifier": "what_happened_both"
+        }
+      ],
+      "order": 2,
+      "question": "What happened?",
+      "answer_type": "single_select"
+    },
+    {
+      "question_identifier": "sleep_disruption",
+      "answers": [
+        {
+          "value": 1,
+          "answer": "Yes",
+          "order": 1,
+          "answer_identifier": "sleep_disruption_yes"
+        },
+        {
+          "value": 0,
+          "answer": "No",
+          "order": 2,
+          "answer_identifier": "sleep_disruption_no"
+        }
+      ],
+      "order": 3,
+      "question": "Did it wake you from sleeping?",
+      "answer_type": "single_select"
+    },
+    {
+      "question_identifier": "urgency_level",
+      "answers": [
+        {
+          "value": 0,
+          "answer": "Not Urgent At All",
+          "order": 1,
+          "answer_identifier": "urgency_level_not_urgent"
+        },
+        {
+          "value": 1,
+          "answer": "Somewhat Urgent",
+          "order": 2,
+          "answer_identifier": "urgency_level_somewhat_urgent"
+        },
+        {
+          "value": 2,
+          "answer": "Pretty Urgent",
+          "order": 3,
+          "answer_identifier": "urgency_level_pretty_urgent"
+        },
+        {
+          "value": 3,
+          "answer": "Very Urgent",
+          "order": 4,
+          "answer_identifier": "urgency_level_very_urgent"
+        },
+        {
+          "value": 4,
+          "answer": "Extremely Urgent",
+          "order": 5,
+          "answer_identifier": "urgency_level_extremely_urgent"
+        },
+        {
+          "value": 4,
+          "answer": "No Warning",
+          "order": 6,
+          "answer_identifier": "urgency_level_no_warning"
+        }
+      ],
+      "order": 4,
+      "question": "How urgent did it feel?",
+      "question_description": "Swipe to view all options",
+      "answer_type": "single_select"
+    },
+    {
+      "question_identifier": "leakage_level",
+      "answers": [
+        {
+          "value": 1,
+          "answer": "Slight Leak",
+          "order": 1,
+          "answer_identifier": "leakage_level_slight_leak"
+        },
+        {
+          "value": 2,
+          "answer": "Moderate Leak",
+          "order": 2,
+          "answer_identifier": "leakage_level_moderate_leak"
+        },
+        {
+          "value": 3,
+          "answer": "Heavy Leak",
+          "order": 3,
+          "answer_identifier": "leakage_level_heavy_leak"
+        }
+      ],
+      "order": 5,
+      "question": "What was the leak amount?",
+      "answer_type": "single_select"
+    },
+    {
+      "question_identifier": "protective_products",
+      "answers": [
+        {
+          "value": 0,
+          "answer": "None",
+          "order": 1,
+          "clear_other_answers": true,
+          "answer_identifier": "protective_products_none"
+        },
+        {
+          "answer": "Incontinence brief",
+          "order": 4,
+          "answer_identifier": "protective_products_incontinence_brief"
+        },
+        {
+          "answer": "Toilet / Tissue paper",
+          "order": 5,
+          "answer_identifier": "protective_products_toilet_tissue_paper"
+        },
+        {
+          "answer": "Clothing",
+          "order": 6,
+          "answer_identifier": "protective_products_clothing"
+        }
+      ],
+      "order": 6,
+      "question": "Did you change a protective product?",
+      "question_description": "Select all that apply",
+      "answer_type": "multi_select"
+    }
+  ]
+}
