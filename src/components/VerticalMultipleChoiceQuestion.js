@@ -17,7 +17,7 @@ function VerticalMultipleChoiceQuestion({questionText, answers}) {
             <QuestionText questionText={questionText}/>
             <View style={styles.answerContainer}>
                 {answers.map((answer, index) => (
-                    <VerticalAnswerButton answerText={answer} answerIndex={index}
+                    <VerticalAnswerButton answerText={answer.answer} answerIndex={index}
                                           selectedAnswerIndex={selectedAnswerIndex}
                                           onPressHandler={onPressHandler.bind(this, index)}/>
                 ))}

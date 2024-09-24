@@ -29,11 +29,11 @@ function CollectionTiles({questionText, questionInstructionText, answers}) {
                     {row.map((answer, tileIndex) => (
                         <TileButton
                             key={tileIndex}
-                            answerText={answer}
-                            answerIndex={answer}
+                            answerText={answer.answer}
+                            answerIndex={answer.answer}
                             selectedAnswerIndex={selectedAnswerIndex}
-                            onPressHandler={() => onPressHandler(answer)}
-                            style={styles.tile}
+                            imageSuffix={answer.answerIdentifier}
+                            onPressHandler={() => onPressHandler(answer.answer)}
                         />
                     ))}
                 </View>
@@ -56,13 +56,6 @@ const styles = StyleSheet.create({
         gap: 16,
         marginBottom: 10,
         marginTop: 24,
-    },
-    tile: {
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 3 },
-        shadowOpacity: 0.1,
-        shadowRadius: 6,
-        elevation: 3,
     },
 });
 

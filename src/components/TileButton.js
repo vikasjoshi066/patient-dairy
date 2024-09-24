@@ -1,35 +1,40 @@
-import {Colors} from "../utils/constants";
-import {Pressable, Text, StyleSheet} from "react-native";
-import AnswerButton from "./AnswerButton";
+import React from 'react';
+import {StyleSheet} from 'react-native';
+import CarousalAnswerButton from './CarousalAnswerButton';
 
-function TileButton({answerText, answerIndex, selectedAnswerIndex, onPressHandler, style}) {
-    console.log(answerText);
+const TileButton = ({
+                        answerText,
+                        answerIndex,
+                        selectedAnswerIndex,
+                        onPressHandler,
+                        imageSuffix,
+                        btnStyle
+                    }) => {
     return (
-        <AnswerButton
+        <CarousalAnswerButton
             answerText={answerText}
             onPressHandler={onPressHandler}
             answerIndex={answerIndex}
             selectedAnswerIndex={selectedAnswerIndex}
-            verticalBtnStyle={styles.btnVerticalAnswer}
+            imageSuffix={imageSuffix}
+            btnStyle={[styles.btnVerticalAnswer, btnStyle]}
         />
-    )
-}
-
-export default TileButton;
+    );
+};
 
 const styles = StyleSheet.create({
     btnVerticalAnswer: {
-        minHeight: 90,
-        minWidth: 100,
+        height: 90,
+        width: 100,
         borderRadius: 4,
-
         // Shadow for iOS
         shadowColor: '#000',
-        shadowOffset: { width: 0, height: 3 },
+        shadowOffset: {width: 0, height: 3},
         shadowOpacity: 0.1,
         shadowRadius: 6,
-
-        // Shadow for android
+        // Shadow for Android
         elevation: 3,
     },
-})
+});
+
+export default TileButton;

@@ -146,14 +146,14 @@
           "answer_identifier": "protective_products_none"
         },
         {
-          "answer": "Incontinence brief",
-          "order": 4,
-          "answer_identifier": "protective_products_incontinence_brief"
-        },
-        {
           "answer": "Toilet / Tissue paper",
           "order": 5,
           "answer_identifier": "protective_products_toilet_tissue_paper"
+        },
+        {
+          "answer": "Liner",
+          "order": 4,
+          "answer_identifier": "protective_products_liner"
         },
         {
           "answer": "Clothing",
