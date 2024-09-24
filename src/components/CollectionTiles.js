@@ -3,11 +3,12 @@ import {useState} from "react";
 import QuestionText from "./QuestionText";
 import TileButton from "./TileButton";
 
-function CollectionTiles({questionText, questionInstructionText, answers}) {
-    const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null);
+function CollectionTiles({questionOrder, questionText, questionInstructionText, answers,handleAnswerChange}) {
+    const [selectedAnswerIndex, setSelectedAnswerIndex] = useState([]);
 
     function onPressHandler(selectedAnswerIndex) {
-        setSelectedAnswerIndex(selectedAnswerIndex);
+        setSelectedAnswerIndex((prevIndex) => [...prevIndex, selectedAnswerIndex]);
+        handleAnswerChange(questionOrder, questionText, selectedAnswerIndex);
     }
 
     const getRows = () => {
@@ -32,7 +33,9 @@ function CollectionTiles({questionText, questionInstructionText, answers}) {
                             answerText={answer.answer}
                             answerIndex={answer.answer}
                             selectedAnswerIndex={selectedAnswerIndex}
+                            multipleSelection={true}
                             imageSuffix={answer.answerIdentifier}
+                            setSelectedAnswerIndex={setSelectedAnswerIndex}
                             onPressHandler={() => onPressHandler(answer.answer)}
                         />
                     ))}

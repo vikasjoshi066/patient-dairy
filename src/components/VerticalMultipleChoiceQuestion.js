@@ -5,11 +5,12 @@ import AnswerButton from "./AnswerButton";
 import QuestionText from "./QuestionText";
 import VerticalAnswerButton from "./VerticalAnswerButton";
 
-function VerticalMultipleChoiceQuestion({questionText, answers}) {
+function VerticalMultipleChoiceQuestion({questionOrder, questionText, answers, handleAnswerChange}) {
     const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null);
 
     function onPressHandler(selectedAnswerIndex) {
         setSelectedAnswerIndex(selectedAnswerIndex);
+        handleAnswerChange(questionOrder, questionText, selectedAnswerIndex);
     }
 
     return (

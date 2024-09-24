@@ -8,7 +8,9 @@ const TileButton = ({
                         selectedAnswerIndex,
                         onPressHandler,
                         imageSuffix,
-                        btnStyle
+                        btnStyle,
+                        multipleSelection,
+    setSelectedAnswerIndex,
                     }) => {
     return (
         <CarousalAnswerButton
@@ -17,7 +19,9 @@ const TileButton = ({
             answerIndex={answerIndex}
             selectedAnswerIndex={selectedAnswerIndex}
             imageSuffix={imageSuffix}
+            multipleSelection={multipleSelection}
             btnStyle={[styles.btnVerticalAnswer, btnStyle]}
+            setSelectedAnswerIndex={setSelectedAnswerIndex}
         />
     );
 };

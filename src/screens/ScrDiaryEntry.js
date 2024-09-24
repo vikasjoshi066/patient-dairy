@@ -1,60 +1,26 @@
-import React from 'react';
-import { StyleSheet, View, Text, ScrollView, TouchableOpacity } from 'react-native';
-import { useLayoutEffect } from 'react';
+import React, {useState} from 'react';
+import {StyleSheet, View, Text, ScrollView, TouchableOpacity} from 'react-native';
+import {useLayoutEffect} from 'react';
 import {Strings, Colors, Screens} from '../utils/constants';
-import DualChoiceQuestion from '../components/DualChoiceQuestion';
-import VerticalMultipleChoiceQuestion from '../components/VerticalMultipleChoiceQuestion';
-import CarousalChoiceQuestion from '../components/CarousalChoiceQuestion';
-import CollectionTiles from '../components/CollectionTiles';
+import QuestionComponent from '../components/QuestionComponent';
 import BLADDER_QUESTIONS from '../models/questionsModel';
 
-const QuestionComponent = ({ row }) => {
-    switch (row.order) {
-        case 1:
-        case 3:
-            return (
-                <DualChoiceQuestion
-                    questionText={row.question}
-                    answer1Text={row.answers[0].answer}
-                    answer2Text={row.answers[1].answer}
-                />
-            );
-        case 2:
-            return (
-                <VerticalMultipleChoiceQuestion
-                    questionText={row.question}
-                    answers={row.answers}
-                />
-            );
-        case 4:
-        case 5:
-            return (
-                <CarousalChoiceQuestion
-                    questionText={row.question}
-                    questionInstructionText={row.order === 4 ? row.questionDescription : 'Swipe to view all options'}
-                    answers={row.answers}
-                />
-            );
-        case 6:
-            return (
-                <CollectionTiles
-                    questionText={row.question}
-                    questionInstructionText={row.questionDescription}
-                    answers={row.answers}
-                />
-            );
-        default:
-            return null;
-    }
-};
-
-const Button = ({ onPress, style, textStyle, children }) => (
+const Button = ({onPress, style, textStyle, children}) => (
     <TouchableOpacity style={style} onPress={onPress}>
         <Text style={textStyle}>{children}</Text>
     </TouchableOpacity>
 );
 
-const ScrDiaryEntry = ({ navigation }) => {
+const ScrDiaryEntry = ({navigation}) => {
+    const [questionAnswers, setQuestionAnswers] = useState({});
+
+    const handleAnswerChange = (questionOrder, question, answer) => {
+        setQuestionAnswers(prevAnswers => ({
+            ...prevAnswers,
+            [questionOrder]: {"questions": question, "answer": answer}
+        }));
+    };
+
     useLayoutEffect(() => {
         navigation.setOptions({
             title: Strings.SCR_TTL_DIARY_ENTRY,
@@ -66,17 +32,33 @@ const ScrDiaryEntry = ({ navigation }) => {
     };
 
     const handleSave = () => {
-        // Add save logic here
+        console.log("Review questions before saved ", questionAnswers);
+    };
+
+    const renderQuestions = () => {
+        let questions = [];
+        for (let i = 0; i < BLADDER_QUESTIONS.length; i++) {
+            const question = BLADDER_QUESTIONS[i];
+
+            if (question.order === 1) {
+                questions.push(
+                    <QuestionComponent key={question.order} row={question} handleAnswerChange={handleAnswerChange}/>
+                );
+            } else if (question.order === i + 1 && questionAnswers[i]) {
+                questions.push(
+                    <QuestionComponent key={question.order} row={question} handleAnswerChange={handleAnswerChange}/>
+                );
+            }
+        }
+        return questions;
     };
 
     return (
         <ScrollView style={styles.container}>
             <View style={styles.content}>
-                {BLADDER_QUESTIONS.map((row, index) => (
-                    <QuestionComponent key={index} row={row} />
-                ))}
+                {renderQuestions()}
 
-                <View style={styles.btnContainer}>
+                {questionAnswers[BLADDER_QUESTIONS.length] && <View style={styles.btnContainer}>
                     <Button
                         onPress={handleCancel}
                         style={styles.cancelButton}
@@ -91,11 +73,13 @@ const ScrDiaryEntry = ({ navigation }) => {
                     >
                         Save
                     </Button>
-                </View>
+                </View>}
             </View>
         </ScrollView>
     );
 };
+
+export default ScrDiaryEntry;
 
 const styles = StyleSheet.create({
     container: {
@@ -144,5 +128,3 @@ const styles = StyleSheet.create({
         fontSize: 18,
     },
 });
-
-export default ScrDiaryEntry;

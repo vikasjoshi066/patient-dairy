@@ -1,25 +1,34 @@
 import React from 'react';
-import { Pressable, Text, StyleSheet, Image } from 'react-native';
-import { Colors, ImageMap } from '../utils/constants';
+import {Pressable, Text, StyleSheet, Image} from 'react-native';
+import {Colors, ImageMap} from '../utils/constants';
 
 const CarouselAnswerButton = ({
                                   answerText,
                                   answerIndex,
                                   selectedAnswerIndex,
+                                  setSelectedAnswerIndex,
                                   onPressHandler,
                                   btnStyle,
                                   imageSuffix,
+                                  multipleSelection
                               }) => {
-    const isSelected = selectedAnswerIndex === answerIndex;
+    let isSelected = selectedAnswerIndex === answerIndex;
+    if (multipleSelection === true) {
+        console.log("selectedAnswerIndex", selectedAnswerIndex)
+        if (selectedAnswerIndex.includes("None")) {
+            setSelectedAnswerIndex([])
+        }
+        isSelected = selectedAnswerIndex.includes(answerIndex);
+    }
 
     return (
         <Pressable
-            style={({ pressed }) => [
+            style={({pressed}) => [
                 styles.btnAnswer,
                 isSelected && styles.btnAnswerSelected,
                 btnStyle,
             ]}
-            android_ripple={{ color: Colors.secondary }}
+            android_ripple={{color: Colors.secondary}}
             onPress={onPressHandler}
         >
             <Image

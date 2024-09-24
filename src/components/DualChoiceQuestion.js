@@ -4,11 +4,12 @@ import {useState} from "react";
 import AnswerButton from "./AnswerButton";
 import QuestionText from "./QuestionText";
 
-function DualChoiceQuestion({questionText, answer1Text, answer2Text}) {
+function DualChoiceQuestion({questionOrder, questionText, answer1Text, answer2Text, handleAnswerChange}) {
     const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null);
 
     function onPressHandler(selectedAnswerIndex) {
         setSelectedAnswerIndex(selectedAnswerIndex);
+        handleAnswerChange(questionOrder, questionText, selectedAnswerIndex);
     }
 
     return (
