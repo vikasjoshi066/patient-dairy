@@ -4,6 +4,7 @@ import {useLayoutEffect} from 'react';
 import {Strings, Colors, Screens} from '../utils/constants';
 import QuestionComponent from '../components/QuestionComponent';
 import BLADDER_QUESTIONS from '../models/questionsModel';
+import DatePicker from "../components/DatePicker";
 
 const Button = ({onPress, style, textStyle, children}) => (
     <TouchableOpacity style={style} onPress={onPress}>
@@ -55,6 +56,10 @@ const ScrDiaryEntry = ({navigation}) => {
 
     return (
         <ScrollView style={styles.container}>
+            <View style={styles.datePicker}>
+                <DatePicker/>
+            </View>
+
             <View style={styles.content}>
                 {renderQuestions()}
 
@@ -127,4 +132,11 @@ const styles = StyleSheet.create({
         color: 'white',
         fontSize: 18,
     },
+    datePicker: {
+        width: '100%',
+        height: 52,
+        backgroundColor: Colors.primaryLight,
+        justifyContent: 'center',
+        alignItems: 'center',
+    }
 });

@@ -12,7 +12,7 @@ export default function App() {
 
     return (
         <View style={styles.rootView}>
-            <StatusBar style="light" />
+            <StatusBar style="light"/>
             <NavigationContainer>
                 <Stack.Navigator screenOptions={{
                     headerStyle: {backgroundColor: Colors.secondaryDark},
@@ -20,7 +20,12 @@ export default function App() {
                     contentStyle: {backgroundColor: "white"},
                 }}>
                     <Stack.Screen name={Screens.ScrPatientDiaryHome} component={ScrPatientDiaryHome}/>
-                    <Stack.Screen name={Screens.ScrDiaryEntry} component={ScrDiaryEntry}/>
+                    <Stack.Screen
+                        name={Screens.ScrDiaryEntry}
+                        component={ScrDiaryEntry}
+                        options={{
+                            headerBackTitleVisible: false
+                        }}/>
                 </Stack.Navigator>
             </NavigationContainer>
         </View>
