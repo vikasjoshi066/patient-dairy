@@ -11,6 +11,12 @@ function QuestionText({questionText, isQuestionInstruction}) {
                     fontSize: isQuestionInstruction != null ? 14 : 20,
                     marginTop: isQuestionInstruction != null ? 11 : 0,
                 }] }>{questionText}</Text>
+            {/*<Text style={[*/}
+            {/*    styles.questionText,*/}
+            {/*    {*/}
+            {/*        fontSize: isQuestionInstruction != null ? 14 : 20,*/}
+            {/*        marginTop: isQuestionInstruction != null ? 11 : 0,*/}
+            {/*    }] }>{questionText}</Text>*/}
         </View>
     )
 }

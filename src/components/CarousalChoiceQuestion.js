@@ -44,21 +44,21 @@ function CarousalChoiceQuestion({questionText, questionInstructionText}) {
                         answerText={"Very Urgent"}
                         answerIndex={3}
                         selectedAnswerIndex={selectedAnswerIndex}
-                        onPressHandler={onPressHandler.bind(this, 0)}
+                        onPressHandler={onPressHandler.bind(this, 1)}
                         imageSuffix={"urgency_level_very_urgent"}
                     />
                     <CarousalAnswerButton
                         answerText={"Extremely Urgent"}
                         answerIndex={4}
                         selectedAnswerIndex={selectedAnswerIndex}
-                        onPressHandler={onPressHandler.bind(this, 0)}
+                        onPressHandler={onPressHandler.bind(this, 2)}
                         imageSuffix={"urgency_level_extremely_urgent"}
                     />
                     <CarousalAnswerButton
                         answerText={"No Warning"}
                         answerIndex={5}
                         selectedAnswerIndex={selectedAnswerIndex}
-                        onPressHandler={onPressHandler.bind(this, 0)}
+                        onPressHandler={onPressHandler.bind(this, 3)}
                         imageSuffix={"urgency_level_no_warning"}
                     />
                 </ScrollView>
