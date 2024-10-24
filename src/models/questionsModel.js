@@ -1,34 +1,37 @@
 // questionsModel.js
-import { Question, Answer } from './model';
-import jsonData from './scratch_1.json'; // Replace with actual data import
+import { Question, Answer } from "./model";
+import jsonData from "./scratch_1.json"; // Replace with actual data import
 
 // Function to map JSON data into Question and Answer model objects
 function mapJsonToQuestions(jsonData) {
-    const questionsArray = [];
+  const questionsArray = [];
 
-    jsonData.bladder.forEach(item => {
-        const answersArray = item.answers.map(answerItem => new Answer(
-            answerItem.answer,
-            answerItem.order,
-            answerItem.answer_identifier,
-            answerItem.value || null,
-            answerItem.clear_other_answers || false,
-            answerItem.answerDescription || ''
-        ));
+  jsonData.bladder.forEach((item) => {
+    const answersArray = item.answers.map(
+      (answerItem) =>
+        new Answer(
+          answerItem.answer,
+          answerItem.order,
+          answerItem.answer_identifier,
+          answerItem.value || null,
+          answerItem.clear_other_answers || false,
+          answerItem.answerDescription || ""
+        )
+    );
 
-        const question = new Question(
-            item.question_identifier,
-            item.question,
-            item.answer_type,
-            answersArray,
-            item.order,
-            item.question_description || ''
-        );
+    const question = new Question(
+      item.question_identifier,
+      item.question,
+      item.answer_type,
+      answersArray,
+      item.order,
+      item.question_description || ""
+    );
 
-        questionsArray.push(question);
-    });
+    questionsArray.push(question);
+  });
 
-    return questionsArray;
+  return questionsArray;
 }
 
 // Singleton instance

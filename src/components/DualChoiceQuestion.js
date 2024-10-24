@@ -1,5 +1,4 @@
-import {Pressable, StyleSheet, Text, View} from "react-native";
-import {Colors} from "../utils/constants";
+import {StyleSheet, View} from "react-native";
 import {useState} from "react";
 import AnswerButton from "./AnswerButton";
 import QuestionText from "./QuestionText";

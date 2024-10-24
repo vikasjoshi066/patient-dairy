@@ -12,7 +12,6 @@ function CollectionTiles({questionOrder, questionText, questionInstructionText, 
     }
 
     const getRows = () => {
-        // Group the answers into chunks of 3
         const rows = [];
         for (let i = 0; i < answers.length; i += 3) {
             rows.push(answers.slice(i, i + 3));

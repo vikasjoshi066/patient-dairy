@@ -14,7 +14,6 @@ const CarouselAnswerButton = ({
                               }) => {
     let isSelected = selectedAnswerIndex === answerIndex;
     if (multipleSelection === true) {
-        console.log("selectedAnswerIndex", selectedAnswerIndex)
         if (selectedAnswerIndex.includes("None")) {
             setSelectedAnswerIndex([])
         }

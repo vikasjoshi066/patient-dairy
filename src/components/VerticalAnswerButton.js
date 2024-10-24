@@ -1,5 +1,4 @@
-import {Colors} from "../utils/constants";
-import {Pressable, Text, StyleSheet} from "react-native";
+import {StyleSheet} from "react-native";
 import AnswerButton from "./AnswerButton";
 
 function VerticalAnswerButton({answerText, answerIndex, selectedAnswerIndex, onPressHandler}) {
